@@ -5,16 +5,16 @@ import Root from "./pages/root";
 import Post from "./pages/post";
 
 function App() {
-    return (
-        <Router>
-            <Switch>
-                <Route path="/post/:id" component={Post}></Route>
-                <Route path="/">
-                    <Root></Root>
-                </Route>
-            </Switch>
-        </Router>
-    );
+  return (
+    <Router>
+      <Switch>
+        <Route path="/post/:id" component={Post}></Route>
+        <Route path="/">
+          <Root></Root>
+        </Route>
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;

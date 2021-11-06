@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import Header from "../components/header";
 import PostList from "../components/postList";
-import { getAllPosts } from "../service";
+import { getAllPosts } from "../api/post";
 import { Post } from "../types";
 import { Container, PostsWrapper } from "./styled";
 
 export default function Root() {
   const [posts, setPosts] = React.useState([] as Post[]);
   useEffect(() => {
-    getAllPosts()?.then((res) => {
+    (async function () {
+      const res = await getAllPosts();
       setPosts(res.results);
-    });
+    })();
   }, []);
 
   return (
