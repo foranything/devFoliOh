@@ -51,7 +51,7 @@ export default function PostComponent() {
         <span>글 삭제</span>
       </ButtonList>
       <TagList>
-        {post.tags.map((tag) => (
+        {post.tags?.map((tag) => (
           <span key={tag}>tag</span>
         ))}
       </TagList>
