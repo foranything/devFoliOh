@@ -13,6 +13,10 @@ export default function Write() {
     history.push("/");
   }
   function onClickPress(): void {
+    if (!title || !body) {
+      alert("제목과 내용을 입력해주세요.");
+      return;
+    }
     (async function () {
       const res = await createPost({ title, body });
       history.push(`/post/${res.id}`);
