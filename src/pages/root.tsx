@@ -3,10 +3,11 @@ import Header from "../components/header";
 import PostList from "../components/postList";
 import { getAllPosts } from "../api/post";
 import { Post } from "../types";
-import { Container, PostsWrapper } from "./styled";
+import { RootContainer, PostsWrapper } from "./styled";
 
-export default function Root() {
-  const [posts, setPosts] = React.useState([] as Post[]);
+export default function RootPages() {
+  const [posts, setPosts] = React.useState<Post[]>([]);
+
   useEffect(() => {
     (async function () {
       const res = await getAllPosts();
@@ -17,13 +18,13 @@ export default function Root() {
   return (
     <div>
       <Header />
-      <Container>
+      <RootContainer>
         <PostsWrapper>
           <main>
             <PostList posts={posts}></PostList>
           </main>
         </PostsWrapper>
-      </Container>
+      </RootContainer>
     </div>
   );
 }

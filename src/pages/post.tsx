@@ -33,7 +33,7 @@ const TagList = styled.section`
   margin-bottom: 30px;
 `;
 
-export default function PostComponent() {
+export default function PostPages() {
   const { id }: any = useParams();
   const [post, setPost] = useState({} as Post);
   useEffect(() => {

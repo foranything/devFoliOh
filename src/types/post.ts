@@ -5,3 +5,8 @@ export interface Post {
   thumbnail: string;
   tags: string[];
 }
+
+export interface Form {
+  title: string;
+  body: string;
+}
