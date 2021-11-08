@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { getPost, deletePost } from "../api/post";
 import { Post } from "../types";
 import Modal from "../components/modal";
+import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     width: 768px;
@@ -38,6 +40,7 @@ const TagList = styled.section`
 export default function PostPages() {
     const [onModal, setOnModal] = useState(false);
     const { id }: any = useParams();
+    const history = useHistory();
     const [post, setPost] = useState({} as Post);
     useEffect(() => {
         (async function () {
@@ -45,7 +48,6 @@ export default function PostPages() {
             setPost(data);
         })();
     }, [id]);
-
 
     const toggleModal = (toggle: boolean) => {
         setOnModal(toggle);
@@ -64,7 +66,16 @@ export default function PostPages() {
             )}
             <div className="title">{post.title}</div>
             <ButtonList>
-                <span>글 수정</span>
+                <span>
+                    <Link
+                        to={{
+                            pathname: `/post/${id}/update`,
+                            state: { title: post.title, body: post.body, id },
+                        }}
+                    >
+                        글 수정
+                    </Link>
+                </span>
                 <span onClick={() => toggleModal(true)}>글 삭제</span>
             </ButtonList>
             <TagList>
