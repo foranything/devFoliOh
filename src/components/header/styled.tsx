@@ -45,3 +45,10 @@ export const LogoWrapper = styled.div`
     text-decoration: none;
   }
 `;
+
+export const HeaderActions = styled.div`
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+`;

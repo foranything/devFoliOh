@@ -35,7 +35,7 @@ const TagList = styled.section`
     margin-bottom: 30px;
 `;
 
-export default function PostComponent() {
+export default function PostPages() {
     const [onModal, setOnModal] = useState(false);
     const { id }: any = useParams();
     const [post, setPost] = useState({} as Post);
@@ -45,6 +45,7 @@ export default function PostComponent() {
             setPost(data);
         })();
     }, [id]);
+
 
     const toggleModal = (toggle: boolean) => {
         setOnModal(toggle);
